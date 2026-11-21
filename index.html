@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nguyễn Vũ Thanh Liêm – Intern Tester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F7; --surface:#FFFFFF; --ink:#14202B; --muted:#5A6874; --line:#D5DDE3;
+  --pass:#0E7C61; --pass-bg:#DDF2EB; --fail:#B93434; --fail-bg:#FAE3E3; --todo:#8A6A00; --todo-bg:#FBF0CC;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F171E; --surface:#17222B; --ink:#E6EDF2; --muted:#9AA9B5; --line:#2A3946;
+    --pass:#4CD1A8; --pass-bg:#12372D; --fail:#FF8A8A; --fail-bg:#3C1E22; --todo:#F0CC62; --todo-bg:#3A3012; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F171E; --surface:#17222B; --ink:#E6EDF2; --muted:#9AA9B5; --line:#2A3946;
+  --pass:#4CD1A8; --pass-bg:#12372D; --fail:#FF8A8A; --fail-bg:#3C1E22; --todo:#F0CC62; --todo-bg:#3A3012; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:auto}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk","IBM Plex Sans",Arial,sans-serif;line-height:1.15;margin:0}
+a{color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pass);outline-offset:3px}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+nav{display:flex;gap:20px;flex-wrap:wrap;padding:20px 0;font-size:15px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink);text-decoration:underline}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;padding:40px 0 56px}
+.hero h1{font-size:clamp(34px,6vw,54px);font-weight:700;letter-spacing:-.02em}
+.hero p.role{font-size:19px;color:var(--muted);margin:14px 0 22px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 18px;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--ink);color:var(--bg)}
+.ticket{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--fail);border-radius:6px;padding:18px 20px;font-size:15px}
+.ticket .id{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:10px}
+.ticket h3{font-size:18px;margin-bottom:12px}
+.ticket dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+.ticket dt{color:var(--muted)}
+.ticket dd{margin:0}
+.tag{display:inline-block;padding:1px 9px;border-radius:99px;font-size:13px;font-weight:600}
+.tag.fail{background:var(--fail-bg);color:var(--fail)}
+.tag.pass{background:var(--pass-bg);color:var(--pass)}
+.tag.todo{background:var(--todo-bg);color:var(--todo)}
+section{padding:44px 0;border-top:1px solid var(--line)}
+section>h2{font-size:28px;margin-bottom:20px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.skills{list-style:none;margin:0;padding:0}
+.skills li{padding:10px 0;border-bottom:1px solid var(--line)}
+.skills b{display:block}
+.skills span{color:var(--muted);font-size:15px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px;margin-bottom:22px}
+.proj h3{font-size:22px;margin-bottom:4px}
+.meta{color:var(--muted);font-size:14px;margin:0 0 14px}
+.proj ul{padding-left:20px;margin:10px 0 0}
+.proj li{margin-bottom:6px}
+.scroll{overflow-x:auto;max-width:100%;margin-top:14px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+.note{font-size:14px;color:var(--muted);margin-top:12px}
+.edu{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+footer a{font-weight:600}
+@media (max-width:720px){.hero,.two{grid-template-columns:1fr}.hero{padding-top:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Sections">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Nguyễn Vũ Thanh Liêm</h1>
+      <p class="role">Intern Tester</p>
+      <div class="btns">
+        <a class="btn main" href="#projects">See my work</a>
+        <a class="btn" href="mailto:luci.gh.itch.io@gmail.com">Email me</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I’m a Computer Science graduate of Ton Duc Thang University (09/2026). I’m looking for an Intern Tester position where I can test and assure the quality of applications: study the requirements, design test cases, run them, and report bugs clearly.</p>
+    <p>I can read code in Python, C#, and Java, which helps me understand how a feature works before I test it. My research work made me detail-oriented and analytical, and I want to grow into a professional QA/QC engineer.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="two">
+      <ul class="skills">
+        <li><b>Testing fundamentals</b><span>SDLC/STLC; unit, integration, system and acceptance levels; functional, regression and API testing.</span></li>
+        <li><b>Test design and documentation</b><span>Test cases from requirements, test plans, and bug reports with steps to reproduce and expected vs. actual result.</span></li>
+        <li><b>Tools</b><span>Jira (bug tracking), Postman (API testing), Excel, Chrome/Edge DevTools.</span></li>
+      </ul>
+      <ul class="skills">
+        <li><b>Code and scripting</b><span>Read Python, Java and C#, and write scripts in them to assist automation testing.</span></li>
+        <li><b>Web and database basics</b><span>HTML, CSS, JavaScript and SQL.</span></li>
+        <li><b>Language</b><span>English, B2.</span></li>
+        <li><b>Adaptability</b><span>Adapts to change and learns new technologies.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <article class="proj">
+      <h3>PhimHay — Online Movie Website: Test Documentation</h3>
+      <p class="meta">ASP.NET Core MVC (.NET 8), EF Core, SQL Server · Tested with Excel and Chrome/Edge DevTools · 09/2026</p>
+      <p>PhimHay is a movie website with registration and email verification, login, password recovery, search and filtering, streaming, comments, ratings, favorites, and admin management. I wrote full QA documentation for it as a practice exercise: a test plan, 74 test cases across 17 feature areas, and 9 bug reports written from running the app myself.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Test cases designed</td><td>74, across 17 feature areas</td></tr>
+            <tr><td>Executed</td><td>74 of 74 (63 Pass, 9 Fail, 2 Blocked)</td></tr>
+            <tr><td>Pass rate</td><td>85.1%</td></tr>
+            <tr><td>Bugs found</td><td>9 (3 High, 4 Medium, 2 Low severity)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:14px">Two of the three High-severity bugs: the Admin dashboard had no authorization check, letting any visitor or logged-in user open it directly by URL; and an invalid page number in the URL crashed the site with an unhandled exception.</p>
+      <ul>
+        <li>Wrote a test plan covering scope, test types, environment, entry/exit criteria, and risks.</li>
+        <li>Designed test cases using equivalence partitioning, boundary value analysis, and error guessing (e.g. password length 7 vs. 8, page numbers 0/−1/9999).</li>
+        <li>Reviewed the source code to verify expected behavior where no requirements document existed.</li>
+        <li>Reported each bug with steps to reproduce, expected vs. actual result, severity, and evidence.</li>
+      </ul>
+      <p class="meta" style="margin-top:12px">Repo: <a href="https://github.com/KhietLoi/PhimHay" target="_blank" rel="noopener">github.com/KhietLoi/PhimHay</a> (team repo) · Test documentation available on request</p>
+    </article>
+
+    <article class="proj">
+      <h3>Graduation thesis</h3>
+      <p class="meta">08/2025 – 03/2026 · PyTorch, OpenCV, Kaggle</p>
+      <p><i>Improving Data Imbalance in Medical Image Classification Using GAN-based Data Augmentation.</i> I trained GAN models to generate synthetic images that balance the classes in a training set, then evaluated their effect on classification results. The images were of skin diseases.</p>
+      <ul>
+        <li>Trained cGAN and StyleGAN2-ADA, reaching FID scores of 92.3845 and 24.8894.</li>
+        <li>Proposed representative sampling of the original dataset so GANs could train on limited hardware without out-of-memory errors.</li>
+        <li>Fine-tuned ImageNet pre-trained models with transfer learning.</li>
+        <li>Ran classification experiments on GAN-generated images and analyzed how they affect model performance.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu"><b>Ton Duc Thang University · Computer Science · GPA 3.4/4.0</b><span>09/2022 – 09/2026</span></div>
+    <p class="note">Certificate: Agile Development &amp; Scrum Framework, Techbase Vietnam, 10/2024.</p>
+  </section>
+
+  <footer id="contact">
+    <p>Open to intern tester roles. Contact me at <a href="mailto:luci.gh.itch.io@gmail.com">luci.gh.itch.io@gmail.com</a> or on <a href="tel:0384885303">0384885303</a>.</p>
+  </footer>
+</div>
+</body>
+</html>
